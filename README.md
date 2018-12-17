@@ -2,7 +2,7 @@
 
 `REPL` is a simple bash script for creating and running self-deleting programs locally, offline, and out of the browser.
 
-**Still in development: Pre-Alpha stage.**
+**Still in development: Alpha stage.**
 
 Repls are saved to the OS's `/tmp` folder. This means that you don't have to worry about managing the files. The OS will delete them automatically when you shut down your computer!
 
