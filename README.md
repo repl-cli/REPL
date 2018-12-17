@@ -40,6 +40,12 @@ repl run
 
 `REPL` already knows which repl you last opened and it will run the repl for you. No need to worry about compilation or using the correct runtime for each language!
 
+If time passes and you forget which repl you are on, simply run:
+
+```
+repl status
+```
+
 Check out our list of supported languages, and their file extensions, directly below.
 
 ## Supported Languages
@@ -59,6 +65,8 @@ Check out our list of supported languages, and their file extensions, directly b
 
 [] Create repls with required boilerplate (i.e. Java class)
 
+[] Option to customize where new repls are created
+
 [] Option to save repls to a location specified in `config`
 
 [] Handle flags
@@ -72,6 +80,8 @@ Check out our list of supported languages, and their file extensions, directly b
 ## Upcoming Languages
 
 [x] C
+
+[] Go
 
 [] Java
 
