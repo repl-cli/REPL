@@ -44,18 +44,24 @@ Check out our list of supported languages, and their file extensions, directly b
 
 ## Supported Languages
 
+[//]: # "When editing, the list below must be kept in alphabetical order"
+
+- C (`c`)
+- C++ (`cpp`)
 - JavaScript (`js`)
-- C++ (`cpp`) [sort of working]
+- Ruby (`rb`)
 
 # To-Do / Ideas
 
-[] Properly handle compilation and execution of compiled languages
+[x] Properly handle compilation and execution of compiled languages
+
+[] Create repls with required boilerplate (i.e. Java class)
 
 [] Option to save repls to a location specified in `config`
 
 [] Handle flags
 
-[] `-n` to open a brand new repl
+[] `-n` to open a brand new repl (come up with a naming system)
 
 [] `-o` open a new repl online at repl.it
 
@@ -63,9 +69,11 @@ Check out our list of supported languages, and their file extensions, directly b
 
 ## Upcoming Languages
 
+[x] C
+
 [] Java
 
-[] Ruby
+[x] Ruby
 
 [] Rust
 

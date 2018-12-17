@@ -1,11 +1,33 @@
 # shellcheck shell=bash
 
+# Modules are listed in alphabetical order
+
+repl_c() {
+  cd /tmp && \
+    $C_COMPILER -o repl repl.c && \
+    ./repl
+}
+
 repl_cpp() {
   cd /tmp && \
     $CPP_COMPILER -o repl repl.cpp && \
     ./repl
 }
 
-repl_js() {
+# repl_java() {
+#   cd /tmp && \
+#     $JAVA_COMPILER repl.java && \
+#     java repl
+# }
+
+repl_javascript() {
   $NODE /tmp/repl.js
+}
+
+repl_ruby() {
+  $RUBY /tmp/repl.rb
+}
+
+repl_rust() {
+  false
 }

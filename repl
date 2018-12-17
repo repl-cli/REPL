@@ -19,10 +19,16 @@ repl_update_config() {
 repl_build() {
   case "$EXT" in
     js)
-      ENV="JavaScript"
+      local env="JavaScript"
       ;;
     cpp)
-      ENV="C++"
+      local env="C++"
+      ;;
+    c)
+      local env="C"
+      ;;
+    rb)
+      local env="ruby"
       ;;
     *)
       echo "repl: Filetype '.${EXT}' not supported"
@@ -30,10 +36,9 @@ repl_build() {
       ;;
   esac
 
-  echo "Creating ${ENV} repl..."
+  echo "Creating ${env} repl..."
 
-  FILE="repl.${EXT}"
-  FILEPATH="/tmp/${FILE}"
+  FILEPATH="/tmp/repl.${EXT}"
 
   if [ ! -e "$FILEPATH" ]; then
     touch "$FILEPATH"
@@ -58,18 +63,28 @@ repl_edit() {
 }
 
 repl_status() {
-  echo "Curent repl: "
+  if [ -z $LAST_RUN ]; then
+    echo "repl: No current repl"
+  else
+    echo "repl status: currently in a $LAST_RUN repl"
+  fi
 }
 
 repl_run() {
   . repl_modules
-  # eval "$LAST_RUNNER $LAST_RUN"
+
   case "$LAST_RUN" in
+    c)
+      repl_c
+      ;;
     cpp)
       repl_cpp
       ;;
     js)
-      repl_js
+      repl_javascript
+      ;;
+    rb)
+      repl_ruby
       ;;
     "")
       echo "repl: could not detect existing repl"
