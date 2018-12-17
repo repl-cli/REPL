@@ -29,5 +29,7 @@ repl_ruby() {
 }
 
 repl_rust() {
-  false
+  cd /tmp && \
+    $RUST_COMPILER repl.rs && \
+    ./repl
 }

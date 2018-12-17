@@ -50,6 +50,7 @@ Check out our list of supported languages, and their file extensions, directly b
 - C++ (`cpp`)
 - JavaScript (`js`)
 - Ruby (`rb`)
+- Rust (`rs`)
 
 # To-Do / Ideas
 
@@ -73,8 +74,10 @@ Check out our list of supported languages, and their file extensions, directly b
 
 [] Java
 
+[] Python
+
 [x] Ruby
 
-[] Rust
+[x] Rust
 
 [] TypeScript

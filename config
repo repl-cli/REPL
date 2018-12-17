@@ -9,11 +9,13 @@ RUBY="ruby"
 # COMPILERS
 CPP_COMPILER="g++"
 C_COMPILER="gcc"
+RUST_COMPILER="rustc"
 ## TODO
 # JAVA_COMPILER="javac"
-# RUST_COMPILER="rustc"
 # TYPESCRIPT="tsc"
 
-### Code below this line is for REPL use only
+### WARNING: Data below this line is for REPL use only.
+### Edit only if you know what you're doing.
 # Keeps track of the last file run
 LAST_RUN=""
+STATUS=""
