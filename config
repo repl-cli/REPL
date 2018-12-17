@@ -1,0 +1,18 @@
+# Supports full filepaths or bins already in your PATH
+# e.g. EDITOR="/usr/bin/vim"
+EDITOR="code"
+
+# Keeps track of the last file run
+LAST_RUN="/tmp/repl.js"
+LAST_RUNNER="node"
+
+# RUNTIMES
+NODE="node"
+## TODO
+# RUBY="ruby"
+
+## TODO
+# COMPILERS
+# C_COMPILER="gcc"
+CPP_COMPILER="/usr/bin/clang++"
+# RUST_COMPILER="rustc"

@@ -1,0 +1,92 @@
+#!/bin/bash
+
+COMMAND=$1
+
+# shellcheck source=config
+. config
+
+repl_has() {
+  type "${1-}" > /dev/null 2>&1
+}
+
+repl_update_config() {
+  local SCRIPTPATH
+  SCRIPTPATH="$( cd "$(dirname "$0")" || exit ; pwd -P )"
+
+  sed -i.bak "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/config"
+}
+
+repl_build() {
+  case "$EXT" in
+    js)
+      ENV="JavaScript"
+      repl_update_config "LAST_RUNNER=" "$NODE"
+      ;;
+    cpp)
+      ENV="C++"
+      repl_update_config "LAST_RUNNER=" "$CPP_COMPILER -o /tmp/repl"
+      ;;
+    *)
+      echo "repl: Filetype '.${EXT}' not supported"
+      exit 1
+      ;;
+  esac
+
+  echo "Creating ${ENV} repl..."
+
+  FILE="repl.${EXT}"
+  FILEPATH="/tmp/${FILE}"
+
+  if [ ! -e "$FILEPATH" ]; then
+    touch "$FILEPATH"
+  fi
+
+  repl_update_config "LAST_RUN=" "$FILEPATH"
+}
+
+repl_edit() {
+  repl_build
+
+  if repl_has "$EDITOR"; then
+    eval "$EDITOR $FILEPATH"
+  else
+    echo "repl: editor '$EDITOR' does not exist. Check config file."
+    echo "Example:"
+    echo "EDITOR=\"vim\""
+    echo "or"
+    echo "EDITOR=\"/usr/bin/vim\""
+    exit 1
+  fi
+}
+
+repl_status() {
+  echo "Curent repl: "
+}
+
+repl_run() {
+  eval "$LAST_RUNNER $LAST_RUN"
+}
+
+main() {
+  case "$COMMAND" in
+    "")
+      echo "repl: missing operand"
+      echo "Try 'repl js'"
+      exit 1
+      ;;
+    run)
+      repl_run
+      ;;
+    status)
+      repl_status
+      ;;
+    *)
+      EXT="$COMMAND"
+      repl_edit
+      ;;
+  esac
+}
+
+main
+
+exit 0
