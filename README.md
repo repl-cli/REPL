@@ -46,7 +46,11 @@ If time passes and you forget which repl you are on, simply run:
 repl status
 ```
 
-Check out our list of supported languages, and their file extensions, directly below.
+Check out our list of [supported languages](https://github.com/DamianRivas/REPL#supported-languages), and their file extensions, below.
+
+## Configuring REPL
+
+Coming soon...
 
 ## Supported Languages
 
