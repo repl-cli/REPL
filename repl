@@ -20,11 +20,9 @@ repl_build() {
   case "$EXT" in
     js)
       ENV="JavaScript"
-      repl_update_config "LAST_RUNNER=" "$NODE"
       ;;
     cpp)
       ENV="C++"
-      repl_update_config "LAST_RUNNER=" "$CPP_COMPILER -o /tmp/repl"
       ;;
     *)
       echo "repl: Filetype '.${EXT}' not supported"
@@ -41,7 +39,7 @@ repl_build() {
     touch "$FILEPATH"
   fi
 
-  repl_update_config "LAST_RUN=" "$FILEPATH"
+  repl_update_config "LAST_RUN=" "$EXT"
 }
 
 repl_edit() {
@@ -51,10 +49,10 @@ repl_edit() {
     eval "$EDITOR $FILEPATH"
   else
     echo "repl: editor '$EDITOR' does not exist. Check config file."
-    echo "Example:"
-    echo "EDITOR=\"vim\""
-    echo "or"
-    echo "EDITOR=\"/usr/bin/vim\""
+    echo "      Example:"
+    echo "          EDITOR=\"vim\""
+    echo "      or"
+    echo "          EDITOR=\"/usr/bin/vim\""
     exit 1
   fi
 }
@@ -64,14 +62,27 @@ repl_status() {
 }
 
 repl_run() {
-  eval "$LAST_RUNNER $LAST_RUN"
+  . repl_modules
+  # eval "$LAST_RUNNER $LAST_RUN"
+  case "$LAST_RUN" in
+    cpp)
+      repl_cpp
+      ;;
+    js)
+      repl_js
+      ;;
+    "")
+      echo "repl: could not detect existing repl"
+      echo "      create a repl first: I.E. 'repl js'"
+      exit 1
+  esac
 }
 
 main() {
   case "$COMMAND" in
     "")
       echo "repl: missing operand"
-      echo "Try 'repl js'"
+      echo "      Try 'repl js'"
       exit 1
       ;;
     run)

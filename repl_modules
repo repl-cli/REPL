@@ -1,0 +1,11 @@
+# shellcheck shell=bash
+
+repl_cpp() {
+  cd /tmp && \
+    $CPP_COMPILER -o repl repl.cpp && \
+    ./repl
+}
+
+repl_js() {
+  $NODE /tmp/repl.js
+}
