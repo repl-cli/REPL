@@ -27,11 +27,14 @@ repl_build() {
     c)
       local env="C"
       ;;
+    py)
+      local env="Python"
+      ;;
     rb)
-      local env="ruby"
+      local env="Ruby"
       ;;
     rs)
-      local env="rust"
+      local env="Rust"
       ;;
     *)
       echo "repl: Filetype '.${EXT}' not supported"
@@ -86,6 +89,9 @@ repl_run() {
       ;;
     js)
       repl_javascript
+      ;;
+    py)
+      repl_python
       ;;
     rb)
       repl_ruby

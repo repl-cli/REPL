@@ -49,6 +49,7 @@ Check out our list of supported languages, and their file extensions, directly b
 - C (`c`)
 - C++ (`cpp`)
 - JavaScript (`js`)
+- Python (`py`)
 - Ruby (`rb`)
 - Rust (`rs`)
 
@@ -74,7 +75,7 @@ Check out our list of supported languages, and their file extensions, directly b
 
 [] Java
 
-[] Python
+[x] Python
 
 [x] Ruby
 

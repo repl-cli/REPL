@@ -24,6 +24,10 @@ repl_javascript() {
   $NODE /tmp/repl.js
 }
 
+repl_python() {
+  $PYTHON /tmp/repl.py
+}
+
 repl_ruby() {
   $RUBY /tmp/repl.rb
 }

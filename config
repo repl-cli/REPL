@@ -5,6 +5,7 @@ EDITOR="nano"
 # RUNTIMES
 NODE="node"
 RUBY="ruby"
+PYTHON="python"
 
 # COMPILERS
 CPP_COMPILER="g++"
