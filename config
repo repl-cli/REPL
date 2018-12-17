@@ -4,13 +4,13 @@ EDITOR="nano"
 
 # RUNTIMES
 NODE="node"
-## TODO
-# RUBY="ruby"
+RUBY="ruby"
 
-## TODO
 # COMPILERS
-# C_COMPILER="gcc"
 CPP_COMPILER="g++"
+C_COMPILER="gcc"
+## TODO
+# JAVA_COMPILER="javac"
 # RUST_COMPILER="rustc"
 # TYPESCRIPT="tsc"
 
