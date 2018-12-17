@@ -1,5 +1,8 @@
 # REPL
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Version](https://img.shields.io/github/tag/DamianRivas/REPL.svg)
+
 `REPL` is a simple bash script for creating and running self-deleting programs locally, offline, and out of the browser.
 
 **Still in development: Alpha stage.**
