@@ -113,3 +113,7 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 [x] Rust
 
 [] TypeScript
+
+---
+
+I want to dedicate this section to acknowledge the help and inspiration this project received from other OSS scripts such as [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and [Node Version Manager(nvm)](https://github.com/creationix/nvm). This project wouldn't be what it is without them!
