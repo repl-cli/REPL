@@ -50,7 +50,6 @@ repl_build() {
   fi
 
   repl_update_config "LAST_RUN=" "$EXT"
-  repl_update_config "STATUS=" "$env"
 }
 
 repl_edit() {
@@ -69,8 +68,8 @@ repl_edit() {
 }
 
 repl_status() {
-  if [ -n "$STATUS" ] && [ -e "/tmp/repl.${LAST_RUN}" ]; then
-    echo "repl status: currently in a $STATUS repl"
+  if [ -n "$LAST_RUN" ] && [ -e "/tmp/repl.${LAST_RUN}" ]; then
+    echo "repl: status: currently in a $LAST_RUN repl"
   else
     echo "repl: No current repl"
   fi
