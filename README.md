@@ -74,6 +74,8 @@ Check out our [Contributing Guidelines](https://github.com/DamianRivas/REPL/blob
 
 I'm far from a bash expert, so any and all help is much appreciated! That includes anyone who can test REPL in a variety of configurations and environments (i.e. lesser used compilers and/or Linux distros)
 
+Below are some ideas for the project. If you'd like to start a conversation regarding anything below, or anything in general, feel free to open a new issue!
+
 ### To-Do / Ideas
 
 [x] Properly handle compilation and execution of compiled languages
@@ -86,11 +88,15 @@ I'm far from a bash expert, so any and all help is much appreciated! That includ
 
 [] Handle flags
 
+[] `--help` for instructions
+
 [] `-n` to open a brand new repl (come up with a naming system)
 
 [] `-o` open a new repl online at repl.it
 
 [] Streamline installation with a script similar to [nvm](https://github.com/creationix/nvm) or [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+[] Windows Subsystem for Linux support.
 
 ### Upcoming Languages
 
