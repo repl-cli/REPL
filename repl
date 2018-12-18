@@ -81,10 +81,10 @@ repl_edit() {
 }
 
 repl_status() {
-  if [ -z $LAST_RUN ]; then
-    echo "repl: No current repl"
-  else
+  if [ -n "$STATUS" ] && [ -e "/tmp/repl.${LAST_RUN}" ]; then
     echo "repl status: currently in a $STATUS repl"
+  else
+    echo "repl: No current repl"
   fi
 }
 
