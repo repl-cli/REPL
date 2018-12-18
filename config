@@ -1,6 +1,6 @@
 # Supports full filepaths or bins already in your PATH
 # e.g. EDITOR="/usr/bin/vim"
-EDITOR="code"
+EDITOR="vi"
 
 # RUNTIMES
 NODE="node"
@@ -18,4 +18,4 @@ RUST_COMPILER="rustc"
 ### WARNING: Data below this line is for REPL use only.
 ### Edit only if you know what you're doing.
 # Keeps track of the last file run
-LAST_RUN="rs"
+LAST_RUN=""
