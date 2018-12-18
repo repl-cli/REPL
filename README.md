@@ -9,11 +9,11 @@
 
 Repls are saved to the OS's `/tmp` folder. This means that you don't have to worry about managing the files. The OS will delete them automatically when you shut down your computer!
 
-# Getting Started
+## Getting Started
 
 Make sure you are on Linux or macOS.
 
-## Installation
+### Installation
 
 1. Clone the repo to your machine. Preferably to your `$HOME` directory:
 
@@ -25,7 +25,7 @@ git clone https://github.com/DamianRivas/REPL.git .repl
 
 3. That's it! Run `repl js` to test it out.
 
-## Using REPL
+### Using REPL
 
 To start a new repl, run `repl <lang>`, where `<lang>` is the file extension for the programming language you'd like to use.
 
@@ -66,7 +66,15 @@ Coming soon...
 - Ruby (`rb`)
 - Rust (`rs`)
 
-# To-Do / Ideas
+## Contributing
+
+Was REPL useful to you? Maybe you just like the project? Donate a star :)
+
+Check out our [Contributing Guidelines](https://github.com/DamianRivas/REPL/blob/master/CONTRIBUTING.md)
+
+I'm far from a bash expert, so any and all help is much appreciated! That includes anyone who can test REPL in a variety of configurations and environments (i.e. lesser used compilers and/or Linux distros)
+
+### To-Do / Ideas
 
 [x] Properly handle compilation and execution of compiled languages
 
@@ -84,7 +92,7 @@ Coming soon...
 
 [] Streamline installation with a script similar to [nvm](https://github.com/creationix/nvm) or [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
-## Upcoming Languages
+### Upcoming Languages
 
 [x] C
 
