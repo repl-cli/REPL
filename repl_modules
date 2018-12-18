@@ -20,19 +20,19 @@ repl_cpp() {
 #     java repl
 # }
 
-repl_javascript() {
+repl_js() {
   $NODE /tmp/repl.js
 }
 
-repl_python() {
+repl_py() {
   $PYTHON /tmp/repl.py
 }
 
-repl_ruby() {
+repl_rb() {
   $RUBY /tmp/repl.rb
 }
 
-repl_rust() {
+repl_rs() {
   cd /tmp && \
     $RUST_COMPILER repl.rs && \
     ./repl

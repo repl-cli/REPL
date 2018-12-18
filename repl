@@ -4,18 +4,19 @@ COMMAND=$1
 
 # shellcheck source=config
 . config
+. language_support.sh
 
 repl_has() {
   type "${1-}" > /dev/null 2>&1
 }
 
 #######################################
-# Update a line in the config file
+# Update a line in the config file.
 # Globals:
 #   None
 # Arguments:
-#   $1 - Variable to update (i.e. "LAST_RUN=") [MUST include equals sign]
-#   $2 - Value to update variable with (i.e. "cpp" for LAST_RUN=)
+#   $1 - Variable to update (i.e. "LAST_RUN=") [MUST include equals sign, no leading/trailing spaces]
+#   $2 - Value to update variable with (i.e. "cpp" for LAST_RUN=) [no leading/trailing spaces]
 # Returns:
 #   None
 #######################################
@@ -28,30 +29,17 @@ repl_update_config() {
 }
 
 repl_build() {
-  case "$EXT" in
-    js)
-      local env="JavaScript"
-      ;;
-    cpp)
-      local env="C++"
-      ;;
-    c)
-      local env="C"
-      ;;
-    py)
-      local env="Python"
-      ;;
-    rb)
-      local env="Ruby"
-      ;;
-    rs)
-      local env="Rust"
-      ;;
-    *)
-      echo "repl: Filetype '.${EXT}' not supported"
-      exit 1
-      ;;
-  esac
+  for lang in "${LANGUAGES[@]}"; do
+    if [ "$EXT" = "$lang" ]; then
+      local env="$lang"
+      break
+    fi
+  done
+
+  if [ -z "$env" ]; then
+    echo "repl: Filetype '.${EXT}' not supported"
+    exit 1
+  fi
 
   echo "Creating ${env} repl..."
 
@@ -91,30 +79,16 @@ repl_status() {
 repl_run() {
   . repl_modules
 
-  case "$LAST_RUN" in
-    c)
-      repl_c
-      ;;
-    cpp)
-      repl_cpp
-      ;;
-    js)
-      repl_javascript
-      ;;
-    py)
-      repl_python
-      ;;
-    rb)
-      repl_ruby
-      ;;
-    rs)
-      repl_rust
-      ;;
-    "")
-      echo "repl: could not detect existing repl"
-      echo "      create a repl first: I.E. 'repl js'"
-      exit 1
-  esac
+  for lang in "${LANGUAGES[@]}"; do
+    if [ "$lang" = "$LAST_RUN" ]; then
+      "repl_$lang" && \
+      return 0
+    fi
+  done
+
+  echo "repl: could not detect existing repl"
+  echo "      create a repl first: I.E. 'repl js'"
+  exit 1
 }
 
 main() {
