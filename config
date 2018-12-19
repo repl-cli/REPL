@@ -1,13 +1,15 @@
-# Supports full filepaths or bins already in your PATH
+## EDITOR: Supports full filepaths, or bins already in your PATH
 # e.g. EDITOR="/usr/bin/vim"
+#        or
+#      EDITOR="vim"
 EDITOR="vi"
 
-# RUNTIMES
+## RUNTIMES
 NODE="node"
 RUBY="ruby"
 PYTHON="python"
 
-# COMPILERS
+## COMPILERS
 CPP_COMPILER="g++"
 C_COMPILER="gcc"
 RUST_COMPILER="rustc"

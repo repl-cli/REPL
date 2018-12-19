@@ -23,9 +23,11 @@ git clone https://github.com/DamianRivas/REPL.git .repl
 
 2. Add `.repl` to your PATH
 
-3. That's it! Run `repl js` to test it out.
+3. That's it!
 
 ### Using REPL
+
+**NOTICE: REPL uses `vi` by default to support the largest amount of systems right out of the box. I highly suggest changing this to your favorite editor by editing `config` before using REPL.**
 
 To start a new repl, run `repl <lang>`, where `<lang>` is the file extension for the programming language you'd like to use.
 
