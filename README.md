@@ -18,7 +18,7 @@ Make sure you are on Linux or macOS.
 1. Clone the repo to your machine. Preferably to your `$HOME` directory:
 
 ```
-git clone https://github.com/DamianRivas/REPL.git .repl
+cd $HOME && git clone https://github.com/DamianRivas/REPL.git .repl
 ```
 
 2. Add `.repl` to your PATH
