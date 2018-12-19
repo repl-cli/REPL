@@ -21,7 +21,7 @@ Make sure you are on Linux or macOS.
 cd $HOME && git clone https://github.com/DamianRivas/REPL.git .repl
 ```
 
-2. Add `.repl` to your PATH
+2. Add `$HOME/.repl` to your PATH
 
 3. That's it!
 
