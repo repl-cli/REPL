@@ -15,14 +15,18 @@
     local source_str="\\n# Add REPL to PATH\nexport PATH=\"\$HOME/.repl:\$PATH\"\\n"
 
     if [ -e "$HOME/.bashrc" ]; then
+      printf "=> bash shell detected. Adding to PATH..."
       command printf "${source_str}" >> "$HOME/.bashrc"
     fi
     if [ -e "$HOME/.zshrc" ]; then
+      printf "=> zsh shell detected. Adding to PATH..."
       command printf "${source_str}" >> "$HOME/.zshrc"
     fi
     if [ -e "$HOME/.config/fish/config.fish" ]; then
       # shellcheck disable=SC2016
-      command printf '\n set PATH $HOME/.repl $PATH\n' >> "$HOME/.config/fish/config.fish"
+      printf "=> fish shell detected. Adding to PATH..."
+      local fish_str="\\nset PATH \$HOME/.repl \$PATH\\n"
+      command printf "${fish_str}" >> "$HOME/.config/fish/config.fish"
     fi
   }
 
