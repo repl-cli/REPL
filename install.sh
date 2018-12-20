@@ -2,7 +2,7 @@
 
 { # this ensures the entire script is downloaded #
   REPL_LATEST_VERSION="v0.3.0"
-  INSTALL_DIR="$HOME/.repl-install-test"
+  INSTALL_DIR="$HOME/.repl"
 
   repl_check_git() {
     command -v git >/dev/null 2>&1 || {
@@ -12,10 +12,14 @@
   }
 
   repl_add_to_path() {
-    # TODO: SET THIS TO DEFAULT
     local source_str="\\n# Add REPL to PATH\nexport PATH=\"\$HOME/.repl-install-test:\$PATH\"\\n"
-    # command printf "${source_str}" >> "$HOME/.bashrc"
-    command printf "${source_str}" >> "$HOME/.zshrc"
+
+    if [ -e "$HOME/.bashrc" ]; then
+      command printf "${source_str}" >> "$HOME/.bashrc"
+    fi
+    if [ -e "$HOME/.zshrc" ]; then
+      command printf "${source_str}" >> "$HOME/.zshrc"
+    fi
   }
 
   repl_install_from_git() {
@@ -94,7 +98,7 @@
     printf '    repl: No current repl\n'
     printf 'You may have to restart your shell for PATH changes to take effect.\n'
     printf '\n'
-    printf 'Thank you for using out REPL!'
+    printf 'Thank you for using REPL!'
     printf '\n'
   }
 
