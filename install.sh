@@ -12,7 +12,7 @@
   }
 
   repl_add_to_path() {
-    local source_str="\\n# Add REPL to PATH\nexport PATH=\"\$HOME/.repl-install-test:\$PATH\"\\n"
+    local source_str="\\n# Add REPL to PATH\nexport PATH=\"\$HOME/.repl:\$PATH\"\\n"
 
     if [ -e "$HOME/.bashrc" ]; then
       command printf "${source_str}" >> "$HOME/.bashrc"
@@ -22,6 +22,17 @@
     fi
   }
 
+#######################################
+# Checks if REPL is already installed. If it is, it fetches the latest version.
+# If not, it clones the latest version.
+# Requires git to be installed.
+# Globals:
+#   None
+# Arguments:
+#   None
+# Returns:
+#   None
+#######################################
   repl_install_from_git() {
     local repl_source="https://github.com/DamianRivas/REPL.git"
 
@@ -96,7 +107,7 @@
     printf 'Run `repl status` to ensure it installed properly\n'
     printf 'If this is the first time you run repl, output will be similar to:\n'
     printf '    repl: No current repl\n'
-    printf 'You may have to restart your shell for PATH changes to take effect.\n'
+    printf 'If REPL is not found, you may have to restart your shell for PATH changes to take effect.\n'
     printf '\n'
     printf 'Thank you for using REPL!'
     printf '\n'
