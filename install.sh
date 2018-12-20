@@ -20,6 +20,10 @@
     if [ -e "$HOME/.zshrc" ]; then
       command printf "${source_str}" >> "$HOME/.zshrc"
     fi
+    if [ -e "$HOME/.config/fish/config.fish" ]; then
+      # shellcheck disable=SC2016
+      command printf '\n set PATH $HOME/.repl $PATH\n'
+    fi
   }
 
 #######################################
