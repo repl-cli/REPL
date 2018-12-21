@@ -23,6 +23,12 @@ curl -o- https://raw.githubusercontent.com/DamianRivas/REPL/v0.4.1/install.sh | 
 
 <sub>The script clones to `~/.repl` and adds it to your PATH. You may have to restart your shell.</sub>
 
+If your system cannot detect REPL after install, you may have to manually add it to your PATH:
+
+```bash
+export PATH="$HOME/.repl:$PATH"
+```
+
 ### Manual Install
 
 Coming soon...
