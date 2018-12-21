@@ -5,29 +5,33 @@
 
 `REPL` is a simple bash script for creating and running self-deleting programs locally, offline, and out of the browser.
 
-**Still in development: Alpha stage.**
+**REPL is now in Beta.**
 
 Repls are saved to the OS's `/tmp` folder. This means that you don't have to worry about managing the files. The OS will delete them automatically when you shut down your computer!
 
 ## Getting Started
 
-Make sure you are on Linux or macOS.
+### Install Script ( Linux/macOS )
 
-### Installation
-
-1. Clone the repo to your machine. Preferably to your `$HOME` directory:
+1. REPL is installed through the terminal with the following command:
 
 ```
-cd $HOME && git clone https://github.com/DamianRivas/REPL.git .repl
+curl -o- https://raw.githubusercontent.com/DamianRivas/REPL/v0.4.0/install.sh | bash
 ```
 
-2. Add `$HOME/.repl` to your PATH
+2. That's it!
 
-3. That's it!
+<sub>The script clones to `~/.repl` and adds it to your PATH. You may have to restart your shell.</sub>
+
+### Manual Install
+
+Coming soon...
+
+<sub>I've received news that REPL works with `Git Bash`. The `/tmp` directory in git bash redirects to `C:\Users\<user>\AppData\Local\Temp`</sub>
 
 ### Using REPL
 
-**NOTICE: REPL uses `vi` by default to support the largest amount of systems right out of the box. I highly suggest changing this to your favorite editor by editing `config` before using REPL.**
+**NOTICE: REPL uses `nano` by default. I highly suggest changing this to your favorite editor by editing the `config` file before using REPL.**
 
 To start a new repl, run `repl <lang>`, where `<lang>` is the file extension for the programming language you'd like to use.
 
@@ -68,6 +72,8 @@ Coming soon...
 - Ruby (`rb`)
 - Rust (`rs`)
 
+<sub>You must have the necessary compilers/runtimes installed (I.E. `node.js` for JavaScript or `rustc` for Rust). Edit the `config` file to configure the compilers/runtimes that REPL uses.</sub>
+
 ## Contributing
 
 Was REPL useful to you? Maybe you just like the project? Donate a star :)
@@ -96,7 +102,7 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 
 [] `-o` open a new repl online at repl.it
 
-[] Streamline installation with a script similar to [nvm](https://github.com/creationix/nvm) or [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+[x] Streamline installation with a script similar to [nvm](https://github.com/creationix/nvm) or [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 [] Windows Subsystem for Linux support.
 
