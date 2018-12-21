@@ -5,7 +5,7 @@
 
 `REPL` is a simple bash script for creating and running self-deleting programs locally, offline, and out of the browser.
 
-Why REPL? Take a look at our [vision](VISION.MD) for this project.
+Why REPL? Take a look at our [vision](VISION.md) for this project.
 
 **REPL is now in Beta.**
 
