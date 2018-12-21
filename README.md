@@ -82,7 +82,7 @@ Coming soon...
 
 Was REPL useful to you? Maybe you just like the project? Donate a star :)
 
-Check out our [Contributing Guidelines](https://github.com/DamianRivas/REPL/blob/master/CONTRIBUTING.md)
+Check out our [Contributing Guidelines](CONTRIBUTING.md)
 
 I'm far from a bash expert, so any and all help is much appreciated! That includes anyone who can test REPL in a variety of configurations and environments (i.e. lesser used compilers and/or Linux distros)
 
