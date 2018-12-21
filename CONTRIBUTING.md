@@ -35,3 +35,16 @@ In addition:
 Even if you don't have all of these items covered, please still feel free to submit a PR/issue! Someone else may be inspired and volunteer to complete it for you.
 
 Thanks again!
+
+## Adding Support for New Language
+
+I can't possibly know how to use or set up every single programming language out there. If you'd like to see support for a programming language that you use, make a pull request!
+
+Adding support for a new language is easy! Currently, there are two steps for this:
+
+1. Create a module in [repl_modules](repl_modules)
+
+   - This module should follow the naming conventions of the other modules (i.e. `repl_<file-extension>()`)
+   - This module should compile and/or run the repl with the appropriate compiler and/or runtime
+
+2. Add the programming language's file extension to the list in [language_support.sh](language_support.sh)
