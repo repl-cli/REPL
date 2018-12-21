@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 
 { # this ensures the entire script is downloaded #
-  REPL_LATEST_VERSION="v0.4.0_b"
+  REPL_LATEST_VERSION="v0.4.1"
   INSTALL_DIR="$HOME/.repl"
 
   repl_check_git() {
@@ -15,16 +15,16 @@
     local source_str="\\n# Add REPL to PATH\nexport PATH=\"\$HOME/.repl:\$PATH\"\\n"
 
     if [ -e "$HOME/.bashrc" ]; then
-      printf "=> bash shell detected. Adding to PATH..."
+      printf "=> bash shell detected. Adding to PATH...\n"
       command printf "${source_str}" >> "$HOME/.bashrc"
     fi
     if [ -e "$HOME/.zshrc" ]; then
-      printf "=> zsh shell detected. Adding to PATH..."
+      printf "=> zsh shell detected. Adding to PATH...\n"
       command printf "${source_str}" >> "$HOME/.zshrc"
     fi
     if [ -e "$HOME/.config/fish/config.fish" ]; then
       # shellcheck disable=SC2016
-      printf "=> fish shell detected. Adding to PATH..."
+      printf "=> fish shell detected. Adding to PATH...\n"
       local fish_str="\\nset PATH \$HOME/.repl \$PATH\\n"
       command printf "${fish_str}" >> "$HOME/.config/fish/config.fish"
     fi
