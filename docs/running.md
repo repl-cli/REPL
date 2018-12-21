@@ -1,6 +1,6 @@
 # Running Your Repl
 
-After you have open a repl and write some code, you can run your repl in the terminal by running:
+After you open a repl and write some code, you can run your repl in the terminal by running:
 
 ```
 repl run
