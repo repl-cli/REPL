@@ -37,6 +37,8 @@ Coming soon...
 
 ### Using REPL
 
+REPL is fairly simple to use, but you want more details check out the [docs](docs/)
+
 **NOTICE: REPL uses `nano` by default. I highly suggest changing this to your favorite editor by editing the `config` file before using REPL.**
 
 To start a new repl, run `repl <lang>`, where `<lang>` is the file extension for the programming language you'd like to use.
