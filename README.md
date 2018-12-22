@@ -53,7 +53,7 @@ REPL is fairly simple to use, but you want more details check out the [docs](doc
 
 To start a new repl, run `repl <lang>`, where `<lang>` is the file extension for the programming language you'd like to use.
 
-I.E.
+Example:
 
 ```
 repl js
@@ -77,7 +77,23 @@ Check out our list of [supported languages](#supported-languages), and their fil
 
 ## Configuring REPL
 
-Coming soon...
+You can configure REPL by editing the [config](config) file in the source folder.
+
+To change the editor that REPL uses, edit the `EDITOR=` field:
+
+```bash
+EDITOR="code"
+```
+
+You can also change which compilers are used by REPL:
+
+```bash
+C_COMPILER="clang"
+```
+
+**NOTICE**: The config file is a bash script. Make sure there are no spaces before, and after, the equals sign, `=`.
+
+If you break the config file and you're not sure how to fix it, you can copy the contents of `config.default` over to `config` to reset it.
 
 ## Supported Languages
 
@@ -90,7 +106,7 @@ Coming soon...
 - Ruby (`rb`)
 - Rust (`rs`)
 
-<sub>You must have the necessary compilers/runtimes installed (I.E. `node.js` for JavaScript or `rustc` for Rust). Edit the `config` file to configure the compilers/runtimes that REPL uses.</sub>
+<sub>You must have the necessary compilers/runtimes installed (e.g., `node.js` for JavaScript or `rustc` for Rust). Edit the `config` file to configure the compilers/runtimes that REPL uses.</sub>
 
 ## Contributing
 
@@ -98,7 +114,7 @@ Was REPL useful to you? Maybe you just like the project? Donate a star :)
 
 Check out our [Contributing Guidelines](CONTRIBUTING.md)
 
-I'm far from a bash expert, so any and all help is much appreciated! That includes anyone who can test REPL in a variety of configurations and environments (i.e. lesser used compilers and/or Linux distros)
+I'm far from a bash expert, so any and all help is much appreciated! That includes anyone who can test REPL in a variety of configurations and environments (i.e., lesser used compilers and/or Linux distros).
 
 Below are some ideas for the project. If you'd like to start a conversation regarding anything below, or anything in general, feel free to open a new issue!
 
@@ -106,7 +122,9 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 
 [x] Properly handle compilation and execution of compiled languages
 
-[] Create repls with required boilerplate (i.e. Java class)
+[] Create repls with required boilerplate (e.g., Java class)
+
+[] Configure REPL through the CLI (e.g., `repl config editor $(which vim)`)
 
 [] Option to customize where new repls are created
 
