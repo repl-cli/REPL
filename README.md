@@ -31,9 +31,19 @@ If, after installation, running `repl status` in the console fails, this is the 
 
 ### Manual Install
 
-Coming soon...
+1. Run `cd ~`
 
-<sub>I've received news that REPL works with `Git Bash`. The `/tmp` directory in git bash redirects to `C:\Users\<user>\AppData\Local\Temp`</sub>
+2. Run `git clone https://github.com/DamianRivas/REPL.git .repl`
+
+3. Add the installation directory to your `PATH`
+
+To add REPL to your `PATH`, add the following to your `.bashrc`, `.zshrc`, or `.profile`:
+
+```bash
+export PATH="$HOME/.repl:$PATH"
+```
+
+<sub>**Advanced Windows Users**: I've received news that REPL works with `Git Bash` on Windows. The `/tmp` directory in git bash redirects to `C:\Users\<user>\AppData\Local\Temp`.</sub>
 
 ### Using REPL
 
