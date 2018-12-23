@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 
 { # this ensures the entire script is downloaded #
-  REPL_LATEST_VERSION="v0.4.1"
+  REPL_LATEST_VERSION="v0.5.0"
   INSTALL_DIR="$HOME/.repl"
 
   repl_check_git() {
