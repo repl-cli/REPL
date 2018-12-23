@@ -15,7 +15,7 @@ repl_c() {
           printf '  return 0;\n';
           printf '}\n';
         } >> "repl.c"
-      fi
+    fi
     ;;
   run)
     cd "${TMP}" && \
@@ -39,7 +39,7 @@ repl_cpp() {
           printf '  return 0;\n';
           printf '}\n';
         } >> "repl.cpp"
-      fi
+    fi
     ;;
   run)
     cd "${TMP}" && \
@@ -49,11 +49,28 @@ repl_cpp() {
   esac
 }
 
-# repl_java() {
-#   cd "${TMP}" && \
-#     $JAVA_COMPILER repl.java && \
-#     java repl
-# }
+repl_java() {
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.java" && \
+        {
+          printf 'public class repl {\n';
+          printf '    public static void main(String[] args) {\n';
+          printf '        System.out.println("Hello world!");\n';
+          printf '    }\n';
+          printf '}\n'
+        } >> "repl.java"
+    fi
+    ;;
+  run)
+    cd "${TMP}" && \
+      $JAVA_COMPILER repl.java && \
+      java repl
+    ;;
+  esac
+}
 
 repl_js() {
   case $1 in

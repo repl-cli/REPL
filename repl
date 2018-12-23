@@ -79,8 +79,7 @@ repl_run() {
     fi
   done
 
-  echo "repl: could not detect existing repl"
-  echo "      create a repl first (e.g., 'repl js')"
+  echo "repl: failed to run the ${LAST_RUN} repl"
   exit 1
 }
 
