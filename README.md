@@ -101,6 +101,7 @@ If you break the config file and you're not sure how to fix it, you can copy the
 
 - C (`c`)
 - C++ (`cpp`)
+- Java (`java`)
 - JavaScript (`js`)
 - Python (`py`)
 - Ruby (`rb`)
@@ -148,7 +149,7 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 
 [] Go
 
-[] Java
+[x] Java
 
 [x] Python
 
