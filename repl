@@ -5,6 +5,7 @@ COMMAND=$1
 # shellcheck source=config
 . config
 . language_support.sh
+. repl_modules
 
 repl_has() {
   type "${1-}" > /dev/null 2>&1
@@ -15,8 +16,8 @@ repl_has() {
 # Globals:
 #   None
 # Arguments:
-#   $1 - Variable to update (i.e. "LAST_RUN=") [MUST include equals sign, no leading/trailing spaces]
-#   $2 - Value to update variable with (i.e. "cpp" for LAST_RUN=) [no leading/trailing spaces]
+#   $1 - Variable to update (e.g., "LAST_RUN=") [MUST include equals sign, no leading/trailing spaces]
+#   $2 - Value to update variable with (e.g., "cpp" for LAST_RUN=) [no leading/trailing spaces]
 # Returns:
 #   None
 #######################################
@@ -24,11 +25,10 @@ repl_update_config() {
   local SCRIPTPATH
   SCRIPTPATH="$( cd "$(dirname "$0")" || exit ; pwd -P )"
 
-  # Currently, REPL creates a backup of `config` whenever this function is run
-  sed -i.bak "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/config"
+  sed -i "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/config"
 }
 
-repl_build() {
+repl_edit() {
   for lang in "${LANGUAGES[@]}"; do
     if [ "$EXT" = "$lang" ]; then
       local env="$lang"
@@ -43,20 +43,15 @@ repl_build() {
 
   echo "Creating ${env} repl..."
 
-  FILEPATH="/tmp/repl.${EXT}"
+  local filepath="/tmp/repl.${EXT}"
 
-  if [ ! -e "$FILEPATH" ]; then
-    touch "$FILEPATH"
-  fi
+  # Call the appropriate module from `repl_modules`
+  "repl_$env" edit "$filepath"
 
   repl_update_config "LAST_RUN=" "$EXT"
-}
-
-repl_edit() {
-  repl_build
 
   if repl_has "$EDITOR"; then
-    eval "$EDITOR $FILEPATH"
+    eval "$EDITOR $filepath"
   else
     echo "repl: editor '$EDITOR' does not exist. Check config file."
     echo "      Example:"
@@ -76,37 +71,36 @@ repl_status() {
 }
 
 repl_run() {
-  . repl_modules
-
   for lang in "${LANGUAGES[@]}"; do
     if [ "$lang" = "$LAST_RUN" ]; then
-      "repl_$lang" && \
+      # Call the appropriate module from `repl_modules`
+      "repl_$lang" "run" && \
       return 0
     fi
   done
 
   echo "repl: could not detect existing repl"
-  echo "      create a repl first: I.E. 'repl js'"
+  echo "      create a repl first (e.g., 'repl js')"
   exit 1
 }
 
 main() {
   case "$COMMAND" in
-    "")
-      echo "repl: missing operand"
-      echo "      Try 'repl js'"
-      exit 1
-      ;;
-    run)
-      repl_run
-      ;;
-    status)
-      repl_status
-      ;;
-    *)
-      EXT="$COMMAND"
-      repl_edit
-      ;;
+  "")
+    echo "repl: missing operand"
+    echo "      Try 'repl js'"
+    exit 1
+    ;;
+  run)
+    repl_run
+    ;;
+  status)
+    repl_status
+    ;;
+  *)
+    EXT="$COMMAND"
+    repl_edit
+    ;;
   esac
 }
 

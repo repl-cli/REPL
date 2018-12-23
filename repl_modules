@@ -3,37 +3,117 @@
 # Modules are listed in alphabetical order
 
 repl_c() {
-  cd /tmp && \
-    $C_COMPILER -o repl repl.c && \
-    ./repl
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.c" && \
+        {
+          printf '#include <stdio.h>\n\n';
+          printf 'int main(void) {\n';
+          printf '  printf("Hello world\\n");\n';
+          printf '  return 0;\n';
+          printf '}\n';
+        } >> "repl.c"
+      fi
+    ;;
+  run)
+    cd "${TMP}" && \
+      $C_COMPILER -o repl repl.c && \
+      ./repl
+    ;;
+  esac
 }
 
 repl_cpp() {
-  cd /tmp && \
-    $CPP_COMPILER -o repl repl.cpp && \
-    ./repl
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.cpp" && \
+        {
+          printf '#include <iostream>\n\n';
+          printf 'using namespace std;\n\n';
+          printf 'int main() {\n';
+          printf '  cout << "Hello, world!" << endl;\n';
+          printf '  return 0;\n';
+          printf '}\n';
+        } >> "repl.cpp"
+      fi
+    ;;
+  run)
+    cd "${TMP}" && \
+      $CPP_COMPILER -o repl repl.cpp && \
+      ./repl
+    ;;
+  esac
 }
 
 # repl_java() {
-#   cd /tmp && \
+#   cd "${TMP}" && \
 #     $JAVA_COMPILER repl.java && \
 #     java repl
 # }
 
 repl_js() {
-  $NODE /tmp/repl.js
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.js"
+    fi
+    ;;
+  run)
+    $NODE "${TMP}/repl.js"
+    ;;
+  esac
 }
 
 repl_py() {
-  $PYTHON /tmp/repl.py
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.py"
+    fi
+    ;;
+  run)
+    "$PYTHON" "${TMP}/repl.py"
+    ;;
+  esac
 }
 
 repl_rb() {
-  $RUBY /tmp/repl.rb
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.rb"
+    fi
+    ;;
+  run)
+    "$RUBY" "${TMP}/repl.rb"
+    ;;
+  esac
 }
 
 repl_rs() {
-  cd /tmp && \
-    $RUST_COMPILER repl.rs && \
-    ./repl
+  case "$1" in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.rs" && \
+        {
+          printf 'fn main() {\n';
+          printf '  println!("Hello World!");\n';
+          printf '}\n';
+        } >> "repl.rs"
+    fi
+    ;;
+  run)
+    cd "${TMP}" && \
+      "$RUST_COMPILER" "repl.rs" && \
+      ./repl
+    ;;
+  esac
 }
