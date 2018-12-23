@@ -97,7 +97,7 @@ If you break the config file and you're not sure how to fix it, you can copy the
 
 ## Supported Languages
 
-[//]: # "When editing, the list below must be kept in alphabetical order"
+[//]: # "COMMENT: When editing, the list below must be kept in alphabetical order"
 
 - C (`c`)
 - C++ (`cpp`)
@@ -122,13 +122,13 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 
 [x] Properly handle compilation and execution of compiled languages
 
-[] Create repls with required boilerplate (e.g., Java class)
+[x] Create repls with required boilerplate (e.g., Java class)
 
 [] Configure REPL through the CLI (e.g., `repl config editor $(which vim)`)
 
-[] Option to customize where new repls are created
+[x] Option to customize where new repls are created
 
-[] Option to save repls to a location specified in `config`
+[] Option to save repls to a specified location
 
 [] Handle flags
 
@@ -155,8 +155,6 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 [x] Ruby
 
 [x] Rust
-
-[] TypeScript
 
 ---
 
