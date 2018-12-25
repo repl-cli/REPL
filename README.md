@@ -113,7 +113,7 @@ If you break the config file and you're not sure how to fix it, you can copy the
 
 Was REPL useful to you? Maybe you just like the project? Donate a star :)
 
-Check out our [Contributing Guidelines](CONTRIBUTING.md)
+Check out our [Contributing Guidelines](CONTRIBUTING.md) if you'd like to help out with the project (including adding new language support!).
 
 I'm far from a bash expert, so any and all help is much appreciated! That includes anyone who can test REPL in a variety of configurations and environments (i.e., lesser used compilers and/or Linux distros).
 
@@ -139,23 +139,17 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 
 [] `-o` open a new repl online at repl.it
 
+[] `-e` to specify an editor
+
 [x] Streamline installation with a script similar to [nvm](https://github.com/creationix/nvm) or [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 [] Windows Subsystem for Linux support.
 
-### Upcoming Languages
+## Copyright
 
-[x] C
+© 2018 Damian Rivas
 
-[] Go
-
-[x] Java
-
-[x] Python
-
-[x] Ruby
-
-[x] Rust
+REPL is released under an MIT license; see [`LICENSE`](LICENSE) for details.
 
 ---
 
