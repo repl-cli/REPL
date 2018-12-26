@@ -1,0 +1,3 @@
+[submodule "test/libs/shunit2"]
+	path = test/libs/shunit2
+	url = https://github.com/kward/shunit2/
