@@ -27,5 +27,5 @@ repl_update_config() {
   local SCRIPTPATH
   SCRIPTPATH="$( cd "$(dirname "$0")/.." || exit ; pwd -P )"
 
-  sed -i "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/repl_config"
+  sed -i'' -e "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/repl_config"
 }

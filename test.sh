@@ -45,12 +45,7 @@ main() {
     exit 1
   fi
 
-  if [ -z "${TRAVIS}" ]; then
-    shellcheck_module
-  else
-    # The Travis CI version does not exit immediately on error
-    shellcheck_module_travis
-  fi
+  shellcheck_module
 
   shellcheck_pass
 
@@ -61,11 +56,8 @@ main() {
   printf '\n'
   bash "./test/modules_test.sh"
 
-  # Does not print in Travis CI builds
-  if [ -z "${TRAVIS}" ]; then
-    printf '\n'
-    printf 'Nice, %s, all tests are passing!\n' "$(git config user.name)"
-  fi
+  printf '\n'
+  printf 'Nice, %s, all tests are passing!\n' "$(git config user.name)"
 }
 
 main

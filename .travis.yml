@@ -1,17 +1,24 @@
-language: bash
+language: java
 
 os:
   - linux
   - osx
 
 before_install:
+  # Use Node
+  - nvm use node
+  - node -v
+  # Install Rust
+  - curl https://sh.rustup.rs -sSf | sh -s -- -y
+  - source $HOME/.cargo/env
+  - rustc --version
+  # Install Shellcheck on OSX
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install shellcheck; fi
 
 before_script:
   - export PATH="$(pwd):$PATH"
 
 script:
-  - ./test.sh
   - shellcheck test.sh
   - shellcheck -x repl
   - shellcheck repl_modules.sh
