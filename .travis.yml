@@ -5,8 +5,19 @@ os:
   - osx
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update            ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install shellcheck; fi
+
+before_script:
+  - export PATH="$(pwd):$PATH"
 
 script:
   - ./test.sh
+  - shellcheck test.sh
+  - shellcheck -x repl
+  - shellcheck repl_modules.sh
+  - shellcheck language_support.sh
+  - shellcheck -e SC2034,SC2148 repl_config
+  - shellcheck -e SC2034,SC2148 repl_config.default
+  - shellcheck install.sh
+  - bash "./test/main_test.sh"
+  - bash "./test/modules_test.sh"
