@@ -16,9 +16,15 @@ However, before submitting, please review the following:
 You should be familiar with the basics of
 [contributing on GitHub](https://help.github.com/articles/using-pull-requests).
 
-Use [shellcheck](https://github.com/koalaman/shellcheck) to identify and fix issues in `repl` before submitting (i.e. `shellcheck -x repl`). No output is good output!
+[Run the tests](#Tests) before submitting. New functionality should come with its own tests.
 
-Make sure `config` is in its **default** state before submitting! Copy the contents of `config.default` over to `config` if needed. And changes to `config` must also be made to `config.default`.
+Make sure `repl_config` is in its **default** state before submitting! Copy the contents of `repl_config.default` over to `repl_config` if needed:
+
+```bash
+cat repl_config.default > repl_config
+```
+
+Permanent changes to `repl_config` must also be made to `repl_config.default`.
 
 Also, be so kind as to reference
 any issue that would be solved in the PR description body,
@@ -28,23 +34,52 @@ _"Fixes #XXXX"_ for issue number XXXX.
 In addition:
 
 - Please maintain consistent whitespace - 2-space indentation, trailing newlines in all files, etc.
-- Any time you make a change to your PR, please rebase freshly on top of master. Nobody likes merge commits.
-
----
+- Any time you make a change to your PR, please rebase freshly on top of master.
 
 Even if you don't have all of these items covered, please still feel free to submit a PR/issue! Someone else may be inspired and volunteer to complete it for you.
 
 Thanks again!
 
-## Adding Support for New Language
+## Tests
 
-I can't possibly know how to use or set up every single programming language out there. If you'd like to see support for a programming language that you use, make a pull request!
+#### Set up
 
-Adding support for a new language is easy! Currently, there are two steps for this:
+1. Install [shellcheck](https://github.com/koalaman/shellcheck) if you don't already have it.
+
+2. Install the shunit submodule if you don't already have it:
+
+   - `cd` to your development clone of REPL
+   - Run `git submodule update --init --recursive`
+
+3. Run `chmod +x test.sh` if you haven't already.
+
+#### Running the tests
+
+Go to your development clone of REPL in the terminal and run `./test.sh` **from the project's root directory**.
+
+It's also possible to run individual test files from the project's root directory:
+
+```
+bash test/modules_test.sh
+```
+
+Visit [shUnit2](https://github.com/kward/shunit2/) to learn more about the testing framework used in REPL.
+
+## Adding Support for New Languages
+
+I can't possibly know how to use or set up every programming language in existence. If you'd like to see support for a programming language that you use, make a pull request!
+
+Adding support for a new language is easy! Currently, there are three steps for this:
 
 1. Create a module in [repl_modules](repl_modules)
 
    - This module should follow the naming conventions of the other modules (i.e. `repl_<file-extension>()`)
-   - This module should compile and/or run the repl with the appropriate compiler and/or runtime
+   - Boilerplate code (if any) should **only** print `Hello world!`
+     - This is important for tests
+   - The `run` method should compile and/or run the repl with the appropriate compiler and/or runtime
 
-2. Add the programming language's file extension to the list in [language_support.sh](language_support.sh)
+2. Add the programming language's file extension to the list in [`language_support.sh`](language_support.sh)
+
+3. Create a test for the module in [`test/modules_test.sh`](test/modules_test.sh)
+
+That's it! Make sure all tests pass before submitting a new pull request.

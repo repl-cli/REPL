@@ -2,6 +2,8 @@
 
 # Modules are listed in alphabetical order
 
+# Modules with boilerplate code MUST print EXACTLY "Hello world!" to the console
+
 repl_c() {
   case $1 in
   edit)
@@ -11,7 +13,7 @@ repl_c() {
         {
           printf '#include <stdio.h>\n\n';
           printf 'int main(void) {\n';
-          printf '  printf("Hello world\\n");\n';
+          printf '  printf("Hello world!\\n");\n';
           printf '  return 0;\n';
           printf '}\n';
         } >> "repl.c"
@@ -35,7 +37,7 @@ repl_cpp() {
           printf '#include <iostream>\n\n';
           printf 'using namespace std;\n\n';
           printf 'int main() {\n';
-          printf '  cout << "Hello, world!" << endl;\n';
+          printf '  cout << "Hello world!" << endl;\n';
           printf '  return 0;\n';
           printf '}\n';
         } >> "repl.cpp"
@@ -122,7 +124,7 @@ repl_rs() {
         touch "repl.rs" && \
         {
           printf 'fn main() {\n';
-          printf '  println!("Hello World!");\n';
+          printf '  println!("Hello world!");\n';
           printf '}\n';
         } >> "repl.rs"
     fi

@@ -2,17 +2,16 @@
 
 COMMAND=$1
 
-# shellcheck source=config
-. config
+. repl_config
 . language_support.sh
-. repl_modules
+. repl_modules.sh
 
 repl_has() {
   type "${1-}" > /dev/null 2>&1
 }
 
 #######################################
-# Update a line in the config file.
+# Update a line in the repl_config file.
 # Globals:
 #   None
 # Arguments:
@@ -25,7 +24,7 @@ repl_update_config() {
   local SCRIPTPATH
   SCRIPTPATH="$( cd "$(dirname "$0")" || exit ; pwd -P )"
 
-  sed -i "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/config"
+  sed -i "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/repl_config"
 }
 
 repl_edit() {
@@ -43,7 +42,7 @@ repl_edit() {
 
   echo "Creating ${env} repl..."
 
-  local filepath="/tmp/repl.${EXT}"
+  local filepath="${TMP}/repl.${EXT}"
 
   # Call the appropriate module from `repl_modules`
   "repl_$env" edit "$filepath"
@@ -53,7 +52,7 @@ repl_edit() {
   if repl_has "$EDITOR"; then
     eval "$EDITOR $filepath"
   else
-    echo "repl: editor '$EDITOR' does not exist. Check config file."
+    echo "repl: editor '$EDITOR' does not exist. Check repl_config file."
     echo "      Example:"
     echo "          EDITOR=\"vim\""
     echo "      or"
@@ -63,7 +62,7 @@ repl_edit() {
 }
 
 repl_status() {
-  if [ -n "$LAST_RUN" ] && [ -e "/tmp/repl.${LAST_RUN}" ]; then
+  if [ -n "$LAST_RUN" ] && [ -e "${TMP}/repl.${LAST_RUN}" ]; then
     echo "repl: status: currently in a $LAST_RUN repl"
   else
     echo "repl: No current repl"

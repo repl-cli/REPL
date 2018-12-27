@@ -1,8 +1,8 @@
 # REPL
 
-![Version](https://img.shields.io/github/tag/DamianRivas/REPL.svg)
+![Version](https://img.shields.io/github/tag/DamianRivas/REPL.svg?label=release)
 [![Build Status](https://travis-ci.com/repl-cli/REPL.svg?branch=master)](https://travis-ci.com/repl-cli/REPL)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 `REPL` is a simple bash script for creating and running self-deleting programs locally, offline, and out of the browser.
 
@@ -50,7 +50,7 @@ export PATH="$HOME/.repl:$PATH"
 
 REPL is fairly simple to use, but you want more details check out the [docs](docs/)
 
-**NOTICE: REPL uses `nano` by default. I highly suggest changing this to your favorite editor by editing the `config` file before using REPL.**
+**NOTICE: REPL uses `nano` by default. I highly suggest changing this to your favorite editor by editing the `repl_config` file before using REPL.**
 
 To start a new repl, run `repl <lang>`, where `<lang>` is the file extension for the programming language you'd like to use.
 
@@ -60,7 +60,7 @@ Example:
 repl js
 ```
 
-`REPL` will open your editor set in the config file. You can configure this to your liking. To run your repl, go back to the terminal and run:
+`REPL` will open your editor set in the repl_config file. You can configure this to your liking. To run your repl, go back to the terminal and run:
 
 ```
 repl run
@@ -78,7 +78,7 @@ Check out our list of [supported languages](#supported-languages), and their fil
 
 ## Configuring REPL
 
-You can configure REPL by editing the [config](config) file in the source folder.
+You can configure REPL by editing the [repl_config](repl_config) file in the source folder.
 
 To change the editor that REPL uses, edit the `EDITOR=` field:
 
@@ -92,9 +92,9 @@ You can also change which compilers are used by REPL:
 C_COMPILER="clang"
 ```
 
-**NOTICE**: The config file is a bash script. Make sure there are no spaces before, and after, the equals sign, `=`.
+**NOTICE**: The repl_config file is a bash script. Make sure there are no spaces before, and after, the equals sign, `=`.
 
-If you break the config file and you're not sure how to fix it, you can copy the contents of `config.default` over to `config` to reset it.
+If you break the repl_config file and you're not sure how to fix it, you can copy the contents of `repl_config.default` over to `repl_config` to reset it.
 
 ## Supported Languages
 
@@ -108,7 +108,7 @@ If you break the config file and you're not sure how to fix it, you can copy the
 - Ruby (`rb`)
 - Rust (`rs`)
 
-<sub>You must have the necessary compilers/runtimes installed (e.g., `node.js` for JavaScript or `rustc` for Rust). Edit the `config` file to configure the compilers/runtimes that REPL uses.</sub>
+<sub>You must have the necessary compilers/runtimes installed (e.g., `node.js` for JavaScript or `rustc` for Rust). Edit the `repl_config` file to configure the compilers/runtimes that REPL uses.</sub>
 
 ## Contributing
 
@@ -154,4 +154,12 @@ REPL is released under an MIT license; see [`LICENSE`](LICENSE) for details.
 
 ---
 
-I want to dedicate this section to acknowledge the help and inspiration this project received from other OSS scripts such as [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) and [Node Version Manager(nvm)](https://github.com/creationix/nvm). This project wouldn't be what it is without them!
+I want to dedicate this section to acknowledge the help and inspiration this project received from other FOSS projects. REPL wouldn't be what it is without them!
+
+- [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+- [Node Version Manager(nvm)](https://github.com/creationix/nvm).
+
+- [shellcheck](https://www.shellcheck.net/)
+
+- [shUnit2](https://github.com/kward/shunit2/)
