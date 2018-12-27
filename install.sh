@@ -105,10 +105,12 @@
       repl_add_to_path
     fi
 
-    printf '   ___  _______  __  \n'
-    printf '  / _ \/ __/ _ \/ /  \n'
-    printf ' / , _/ _// ___/ /__ \n'
-    printf '/_/|_/___/_/  /____/ \n'
+    printf '     _______  _______________    ___  \n'
+    printf '    /    .  \/  ______/   .  \  /  /  \n'
+    printf '   /  ___/  /  /_____/   __\  \/  /   \n'
+    printf '  /     ___/  ______/  _______/  /    \n'
+    printf ' /  /\  \ /  /_____/  /      /  /_____\n'
+    printf '/__/  \__\________/__/      /________/\n'
     printf '\n'
     printf 'Congratulations! REPL is now installed.\n'
     # shellcheck disable=SC2016
