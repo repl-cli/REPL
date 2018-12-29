@@ -48,7 +48,7 @@ export PATH="$HOME/.repl:$PATH"
 
 ### Using REPL
 
-REPL is fairly simple to use, but you want more details check out the [docs](docs/)
+REPL is fairly simple to use, but if you want more details check out the [docs](docs/)
 
 **NOTICE: REPL uses `nano` by default. I highly suggest changing this to your favorite editor by editing the `repl_config` file before using REPL.**
 
