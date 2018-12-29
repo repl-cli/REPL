@@ -26,7 +26,7 @@ Rust:
 repl rs
 ```
 
-REPL will create the file in your OS's temporary directory, and then open the file with the editor that's configured in the [repl_config](../repl_config) file. It's highly recommended that you edit this file to configure REPL to use your favorite editor before opening your first repl.
+REPL will create the file in your OS's temporary directory, and then open the file with the editor that's configured in the [config](../config) file. It's highly recommended that you edit this file to configure REPL to use your favorite editor before opening your first repl.
 
 By creating the repl in the temp directory, this ensures that the file is deleted on its own when you reboot your computer. This saves you from having to worry about file management.
 

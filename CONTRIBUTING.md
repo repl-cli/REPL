@@ -18,13 +18,13 @@ You should be familiar with the basics of
 
 [Run the tests](#Tests) before submitting. New functionality should come with its own tests.
 
-Make sure `repl_config` is in its **default** state before submitting! Copy the contents of `repl_config.default` over to `repl_config` if needed:
+Make sure `config` is in its **default** state before submitting! Copy the contents of `config.default` over to `config` if needed:
 
 ```bash
-cat repl_config.default > repl_config
+cat config.default > config
 ```
 
-Permanent changes to `repl_config` must also be made to `repl_config.default`.
+Permanent changes to `config` must also be made to `config.default`.
 
 Also, be so kind as to reference
 any issue that would be solved in the PR description body,

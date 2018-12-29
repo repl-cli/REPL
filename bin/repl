@@ -1,17 +1,21 @@
 #!/bin/bash
 
 COMMAND=$1
+SCRIPTPATH="$( cd "$(dirname "$0")" || exit ; pwd -P )"
 
-. repl_config
-. language_support.sh
-. repl_modules.sh
+# shellcheck source=./config
+. "${SCRIPTPATH}/../config"
+# shellcheck source=./language_support.sh
+. "${SCRIPTPATH}/../language_support.sh"
+# shellcheck source=./repl_modules.sh
+. "${SCRIPTPATH}/../repl_modules.sh"
 
 repl_has() {
   type "${1-}" > /dev/null 2>&1
 }
 
 #######################################
-# Update a line in the repl_config file.
+# Update a line in the config file.
 # Globals:
 #   None
 # Arguments:
@@ -21,10 +25,7 @@ repl_has() {
 #   None
 #######################################
 repl_update_config() {
-  local SCRIPTPATH
-  SCRIPTPATH="$( cd "$(dirname "$0")" || exit ; pwd -P )"
-
-  sed -i'' -e "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/repl_config"
+  sed -i'' -e "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/../config"
 }
 
 repl_edit() {
@@ -52,7 +53,7 @@ repl_edit() {
   if repl_has "$EDITOR"; then
     eval "$EDITOR $filepath"
   else
-    echo "repl: editor '$EDITOR' does not exist. Check repl_config file."
+    echo "repl: editor '$EDITOR' does not exist. Check config file."
     echo "      Example:"
     echo "          EDITOR=\"vim\""
     echo "      or"

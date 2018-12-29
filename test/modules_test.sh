@@ -6,22 +6,22 @@ oneTimeSetUp() {
   if [ ! -e repl_tmp ]; then
     mkdir ./repl_tmp
   fi
-  cat repl_config.default > repl_config
+  cat config.default > config
 }
 
 oneTimeTearDown() {
-  cat repl_config.default > repl_config
+  cat config.default > config
   rm -rf ./repl_tmp
 }
 
 setUp() {
-  cat repl_config.default > repl_config
+  cat config.default > config
   repl_update_config "EDITOR=" "type"
   repl_update_config "TMP=" "repl_tmp"
 }
 
 assert_repl_run() {
-  assertContains "$(repl run)" "Hello world!"
+  assertContains "$(bin/repl run)" "Hello world!"
 }
 
 ## Tests

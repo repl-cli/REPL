@@ -10,11 +10,11 @@
 #   None
 #######################################
 repl_command() {
-  repl "$@" >> /dev/null 2>&1
+  bin/repl "$@" >> /dev/null 2>&1
 }
 
 #######################################
-# Update a line in the repl_config file.
+# Update a line in the config file.
 # Globals:
 #   None
 # Arguments:
@@ -27,5 +27,5 @@ repl_update_config() {
   local SCRIPTPATH
   SCRIPTPATH="$( cd "$(dirname "$0")/.." || exit ; pwd -P )"
 
-  sed -i'' -e "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/repl_config"
+  sed -i'' -e "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/config"
 }

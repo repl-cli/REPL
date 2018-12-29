@@ -12,7 +12,7 @@
   }
 
   repl_add_to_path() {
-    local source_str="\\n# Add REPL to PATH\nexport PATH=\"\$HOME/.repl:\$PATH\"\\n"
+    local source_str="\\n# Add REPL to PATH\nexport PATH=\"\$HOME/.repl/bin:\$PATH\"\\n"
 
     if [ -e "$HOME/.bashrc" ]; then
       printf "=> bash shell detected. Adding to PATH...\n"
@@ -25,7 +25,7 @@
     if [ -e "$HOME/.config/fish/config.fish" ]; then
       # shellcheck disable=SC2016
       printf "=> fish shell detected. Adding to PATH...\n"
-      local fish_str="\\nset PATH \$HOME/.repl \$PATH\\n"
+      local fish_str="\\nset PATH \$HOME/.repl/bin \$PATH\\n"
       command printf "${fish_str}" >> "$HOME/.config/fish/config.fish"
     fi
   }

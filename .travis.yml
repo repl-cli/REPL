@@ -20,11 +20,11 @@ before_script:
 
 script:
   - shellcheck test.sh
-  - shellcheck -x repl
+  - shellcheck -x bin/repl
   - shellcheck repl_modules.sh
   - shellcheck language_support.sh
-  - shellcheck -e SC2034,SC2148 repl_config
-  - shellcheck -e SC2034,SC2148 repl_config.default
+  - shellcheck -e SC2034,SC2148 config
+  - shellcheck -e SC2034,SC2148 config.default
   - shellcheck install.sh
   - bash "./test/main_test.sh"
   - bash "./test/modules_test.sh"
