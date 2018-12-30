@@ -4,6 +4,8 @@
 
 # Modules with boilerplate code MUST print EXACTLY "Hello world!" to the console
 
+# TODO: Exit if the runtime/compiler is not found
+
 repl_c() {
   case $1 in
   edit)
