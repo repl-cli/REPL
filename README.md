@@ -19,7 +19,7 @@ Repls are saved to the OS's `/tmp` folder. This means that you don't have to wor
 1. REPL is installed through the terminal with the following command:
 
 ```
-curl -o- https://raw.githubusercontent.com/DamianRivas/REPL/v0.7.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/DamianRivas/REPL/v0.8.0/install.sh | bash
 ```
 
 2. That's it!
