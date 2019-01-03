@@ -48,9 +48,15 @@ export PATH="$HOME/.repl/bin:$PATH"
 
 ### Using REPL
 
-REPL is fairly simple to use, but if you want more details check out the [docs](docs/)
+REPL is fairly simple to use, but if you want more details check out the [docs](docs/).
 
-**NOTICE: REPL uses `nano` by default. I highly suggest changing this to your favorite editor by editing the `config` file before using REPL.**
+**NOTICE: REPL uses `nano` by default. I highly suggest changing this to your favorite editor before your first use:**
+
+For example, changing the editor to VS Code:
+
+```bash
+repl config editor code
+```
 
 To start a new repl, run `repl <lang>`, where `<lang>` is the file extension for the programming language you'd like to use.
 
@@ -110,6 +116,8 @@ If you break the config file and you're not sure how to fix it, you can copy the
 
 <sub>You must have the necessary compilers/runtimes installed (e.g., `node.js` for JavaScript or `rustc` for Rust). Edit the `config` file to configure the compilers/runtimes that REPL uses.</sub>
 
+Can't find your programming language? Let us know in a new issue, or better yet, submit it in a pull request! :)
+
 ## Contributing
 
 Was REPL useful to you? Maybe you just like the project? Donate a star :)
@@ -126,7 +134,7 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 
 [x] Create repls with required boilerplate (e.g., Java class)
 
-[] Configure REPL through the CLI (e.g., `repl config editor $(which vim)`)
+[x] Configure REPL through the CLI (e.g., `repl config editor $(which vim)`)
 
 [x] Option to customize where new repls are created
 

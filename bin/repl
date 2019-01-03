@@ -1,6 +1,9 @@
 #!/bin/bash
 
 COMMAND=$1
+# TODO: Rename PARAM* or obtain the variables differently
+PARAM1=$2
+PARAM2=$3
 SCRIPTPATH="$( cd "$(dirname "$0")" || exit ; pwd -P )"
 
 # shellcheck source=./config
@@ -10,9 +13,19 @@ SCRIPTPATH="$( cd "$(dirname "$0")" || exit ; pwd -P )"
 # shellcheck source=./repl_modules.sh
 . "${SCRIPTPATH}/../repl_modules.sh"
 
-repl_has() {
-  type "${1-}" > /dev/null 2>&1
-}
+
+#######################################
+# Checks the PATH for the given app (currently unused)
+# Globals:
+#   None
+# Arguments:
+#   $1 - Name of the bin to search for in PATH
+# Returns:
+#   None
+#######################################
+# repl_has() {
+#   type "${1-}" > /dev/null 2>&1
+# }
 
 #######################################
 # Update a line in the config file.
@@ -28,6 +41,14 @@ repl_update_config() {
   sed -i'' -e "s@^\($1\).*@\1\"$2\"@" "${SCRIPTPATH}/../config"
 }
 
+repl_config() {
+  case "$PARAM1" in
+  editor)
+    repl_update_config "EDITOR=" "$PARAM2"
+    ;;
+  esac
+}
+
 repl_edit() {
   for lang in "${LANGUAGES[@]}"; do
     if [ "$EXT" = "$lang" ]; then
@@ -41,8 +62,6 @@ repl_edit() {
     exit 1
   fi
 
-  echo "Creating ${env} repl..."
-
   local filepath="${TMP}/repl.${EXT}"
 
   # Call the appropriate module from `repl_modules`
@@ -50,14 +69,9 @@ repl_edit() {
 
   repl_update_config "LAST_RUN=" "$EXT"
 
-  if repl_has "$EDITOR"; then
-    eval "$EDITOR $filepath"
-  else
-    echo "repl: editor '$EDITOR' does not exist. Check config file."
-    echo "      Example:"
-    echo "          EDITOR=\"vim\""
-    echo "      or"
-    echo "          EDITOR=\"/usr/bin/vim\""
+
+  if ! "$EDITOR" "$filepath" 2> /dev/null; then
+    printf 'repl: Failed to run "%s". Check config file.\n' "$EDITOR"
     exit 1
   fi
 }
@@ -95,6 +109,17 @@ main() {
     ;;
   status)
     repl_status
+    ;;
+  config)
+    if [ -n "$PARAM1" ] && [ -n "$PARAM2" ]; then
+      repl_config
+    else
+      printf 'repl: (config) missing operand\n'
+      printf '      e.g.: repl config editor vim\n'
+      printf '                or\n'
+      printf '            repl config editor /usr/bin/vim\n'
+      exit 1
+    fi
     ;;
   *)
     EXT="$COMMAND"

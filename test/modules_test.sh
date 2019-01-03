@@ -16,7 +16,7 @@ oneTimeTearDown() {
 
 setUp() {
   cat config.default > config
-  repl_update_config "EDITOR=" "type"
+  repl_update_config "EDITOR=" "ls"
   repl_update_config "TMP=" "repl_tmp"
 }
 
@@ -24,7 +24,7 @@ assert_repl_run() {
   assertContains "$(bin/repl run)" "Hello world!"
 }
 
-## Tests
+## TESTS
 
 test_c_module() {
   repl_command c

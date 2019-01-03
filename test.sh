@@ -52,9 +52,9 @@ main() {
   printf '###################\n\n'
   printf 'SHUNIT2-TESTING...\n\n'
 
-  bash "./test/main_test.sh"
+  bash "./test/main_test.sh" || exit 1
   printf '\n'
-  bash "./test/modules_test.sh"
+  bash "./test/modules_test.sh" || exit 1
 
   printf '\n'
   printf 'Nice, %s, all tests are passing!\n' "$(git config user.name)"
