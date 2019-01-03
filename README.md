@@ -1,6 +1,6 @@
 # REPL
 
-![Version](https://img.shields.io/github/tag/DamianRivas/REPL.svg?label=release)
+![Version](https://img.shields.io/github/tag/repl-cli/REPL.svg?label=release)
 [![Build Status](https://travis-ci.com/repl-cli/REPL.svg?branch=master)](https://travis-ci.com/repl-cli/REPL)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -19,7 +19,7 @@ Repls are saved to the OS's `/tmp` folder. This means that you don't have to wor
 1. REPL is installed through the terminal with the following command:
 
 ```
-curl -o- https://raw.githubusercontent.com/DamianRivas/REPL/v0.8.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/repl-cli/REPL/v0.8.0/install.sh | bash
 ```
 
 2. That's it!
@@ -34,7 +34,7 @@ If, after installation, running `repl status` in the console fails, this is the 
 
 1. Run `cd ~`
 
-2. Run `git clone https://github.com/DamianRivas/REPL.git .repl`
+2. Run `git clone https://github.com/repl-cli/REPL.git .repl`
 
 3. Add the installation directory to your `PATH`
 
