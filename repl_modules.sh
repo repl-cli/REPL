@@ -14,9 +14,10 @@ repl_c() {
         touch "repl.c" && \
         {
           printf '#include <stdio.h>\n\n';
-          printf 'int main(void) {\n';
-          printf '  printf("Hello world!\\n");\n';
-          printf '  return 0;\n';
+          printf 'int main(void)\n';
+          printf '{\n';
+          printf '    printf("Hello world!\\n");\n';
+          printf '    return 0;\n';
           printf '}\n';
         } >> "repl.c"
     fi
@@ -38,9 +39,10 @@ repl_cpp() {
         {
           printf '#include <iostream>\n\n';
           printf 'using namespace std;\n\n';
-          printf 'int main() {\n';
-          printf '  cout << "Hello world!" << endl;\n';
-          printf '  return 0;\n';
+          printf 'int main()\n';
+          printf '{\n';
+          printf '    cout << "Hello world!" << endl;\n';
+          printf '    return 0;\n';
           printf '}\n';
         } >> "repl.cpp"
     fi
