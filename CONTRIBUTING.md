@@ -87,4 +87,4 @@ Adding support for a new language is easy! Currently, there are four steps for t
 That's it! Make sure all tests pass before submitting a new pull request.
 
 ## HACKTOBERFEST
-Check out [this PR]() to see what a solid contribution looks like for hacktoberfest!
+Check out [this PR](https://github.com/repl-cli/REPL/pull/2) to see what a solid contribution looks like for hacktoberfest!
