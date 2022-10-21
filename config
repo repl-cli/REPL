@@ -10,13 +10,14 @@ TMP="/tmp"
 ## RUNTIMES
 NODE="node"
 RUBY="ruby"
-PYTHON="python"
+PYTHON="python3"
 
 ## COMPILERS
 CPP_COMPILER="g++"
 C_COMPILER="gcc"
 RUST_COMPILER="rustc"
 JAVA_COMPILER="javac"
+TYPESCRIPT_COMPILER="tsc"
 
 ### WARNING: Data below this line is for REPL use only.
 ### Edit only if you know what you're doing.

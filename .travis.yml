@@ -14,6 +14,7 @@ before_install:
   - rustc --version
   # Install Shellcheck on OSX
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install shellcheck; fi
+  - npm i -g typescript
 
 before_script:
   - export PATH="$(pwd):$PATH"

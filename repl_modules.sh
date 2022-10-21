@@ -1,7 +1,6 @@
 # shellcheck shell=bash
 
 # Modules are listed in alphabetical order
-
 # Modules with boilerplate code MUST print EXACTLY "Hello world!" to the console
 
 # TODO: Exit if the runtime/compiler is not found
@@ -137,6 +136,25 @@ repl_rs() {
     cd "${TMP}" && \
       "$RUST_COMPILER" "repl.rs" && \
       ./repl
+    ;;
+  esac
+}
+
+repl_ts() {
+  case "$1" in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.ts" && \
+        {
+          printf 'console.log("Hello world!");\n'
+        } >> "repl.ts"
+    fi
+    ;;
+  run)
+    cd "${TMP}" && \
+      "$TYPESCRIPT_COMPILER" "repl.ts" && \
+      $NODE "repl.js"
     ;;
   esac
 }

@@ -84,4 +84,11 @@ test_rs_module() {
   assert_repl_run
 }
 
+test_ts_module() {
+  repl_command ts
+  assertContains "$(ls repl_tmp/)" "repl.ts"
+
+  assert_repl_run
+}
+
 . "./test/libs/shunit2/shunit2"

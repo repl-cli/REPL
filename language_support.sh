@@ -10,4 +10,5 @@ declare -a LANGUAGES=(
   "py"
   "rb"
   "rs"
+  "ts"
 )
