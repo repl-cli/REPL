@@ -19,7 +19,7 @@ Repls are saved to the OS's `/tmp` folder. This means that you don't have to wor
 1. REPL is installed through the terminal with the following command:
 
 ```
-curl -o- https://raw.githubusercontent.com/repl-cli/REPL/v0.8.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/repl-cli/REPL/v0.9.0/install.sh | bash
 ```
 
 2. That's it!
@@ -130,33 +130,22 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 
 ### To-Do / Ideas
 
-[x] Properly handle compilation and execution of compiled languages
-
-[x] Create repls with required boilerplate (e.g., Java class)
-
-[x] Configure REPL through the CLI (e.g., `repl config editor $(which vim)`)
-
-[x] Option to customize where new repls are created
-
-[] Option to save repls to a specified location
-
-[] Handle flags
-
-[] `--help` for instructions
-
-[] `-n` to open a brand new repl (come up with a naming system)
-
-[] `-o` open a new repl online at repl.it
-
-[] `-e` to specify an editor
-
-[x] Streamline installation with a script similar to [nvm](https://github.com/creationix/nvm) or [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-
-[] Windows Subsystem for Linux support.
+- [x] Properly handle compilation and execution of compiled languages
+- [x] Create repls with required boilerplate (e.g., Java class)
+- [x] Configure REPL through the CLI (e.g., `repl config editor $(which vim)`)
+- [x] Option to customize where new repls are created
+- [ ] Option to save repls to a specified location
+- [ ] Handle flags
+- [ ] `--help` for instructions
+- [ ] `-n` to open a brand new repl (come up with a naming system)
+- [ ] `-o` open a new repl online at repl.it
+- [ ] `-e` to specify an editor
+- [x] Streamline installation with a script similar to [nvm](https://github.com/creationix/nvm) or [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+- [x] Windows Subsystem for Linux support.
 
 ## Copyright
 
-© 2018 Damian Rivas
+© 2022 Damian Rivas
 
 REPL is released under an MIT license; see [`LICENSE`](LICENSE) for details.
 

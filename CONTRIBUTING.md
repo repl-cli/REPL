@@ -69,7 +69,7 @@ Visit [shUnit2](https://github.com/kward/shunit2/) to learn more about the testi
 
 I can't possibly know how to use or set up every programming language in existence. If you'd like to see support for a programming language that you use, make a pull request!
 
-Adding support for a new language is easy! Currently, there are three steps for this:
+Adding support for a new language is easy! Currently, there are four steps for this:
 
 1. Create a module in [repl_modules](repl_modules)
 
@@ -82,4 +82,9 @@ Adding support for a new language is easy! Currently, there are three steps for 
 
 3. Create a test for the module in [`test/modules_test.sh`](test/modules_test.sh)
 
+4. Update the `config` files with appropriate defaults for the language's compiler and/or runtime
+
 That's it! Make sure all tests pass before submitting a new pull request.
+
+## HACKTOBERFEST
+Check out [this PR]() to see what a solid contribution looks like for hacktoberfest!
