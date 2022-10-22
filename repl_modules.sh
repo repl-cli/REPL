@@ -158,3 +158,25 @@ repl_ts() {
     ;;
   esac
 }
+
+repl_go() {
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.go" && \
+        {
+          printf 'package main\n';
+          printf 'import ("fmt")\n';
+          printf '\n';
+          printf 'func main() {\n';
+          printf '  fmt.Println("Hello world!")\n';
+          printf '}\n';
+        } >> "repl.go"
+    fi
+    ;;
+  run)
+    $GO_COMPILER run "${TMP}/repl.go"
+    ;;
+  esac
+}

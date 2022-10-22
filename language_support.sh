@@ -5,6 +5,7 @@
 declare -a LANGUAGES=(
   "c"
   "cpp"
+  "go"
   "java"
   "js"
   "py"
