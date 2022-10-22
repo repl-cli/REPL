@@ -91,4 +91,11 @@ test_ts_module() {
   assert_repl_run
 }
 
+test_go_module() {
+  repl_command go
+  assertContains "$(ls repl_tmp/)" "repl.go"
+
+  assert_repl_run
+}
+
 . "./test/libs/shunit2/shunit2"
