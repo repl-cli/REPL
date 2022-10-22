@@ -1,4 +1,5 @@
 #!/bin/bash
+. "./language_support.sh"
 
 . "./test/test_helper.sh"
 
@@ -35,6 +36,13 @@ test_status() {
   status=$(./bin/repl status)
 
   assertContains "Should display the correct status message for the current repl" "$status" "status: currently in a js repl"
+}
+
+test_languages() {
+  local languages
+  languages=$(./bin/repl languages)
+
+  assertEquals "repl: Currently supports - ${LANGUAGES[*]}" "$languages"
 }
 
 test_edit() {

@@ -80,6 +80,12 @@ If time passes and you forget which repl you are on, simply run:
 repl status
 ```
 
+To list the currently supported languages, run:
+
+```
+repl languages
+```
+
 Check out our list of [supported languages](#supported-languages), and their file extensions, below.
 
 ## Configuring REPL
@@ -113,6 +119,7 @@ If you break the config file and you're not sure how to fix it, you can copy the
 - Python (`py`)
 - Ruby (`rb`)
 - Rust (`rs`)
+- Typescript (`ts`)
 
 <sub>You must have the necessary compilers/runtimes installed (e.g., `node.js` for JavaScript or `rustc` for Rust). Edit the `config` file to configure the compilers/runtimes that REPL uses.</sub>
 
