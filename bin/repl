@@ -49,6 +49,14 @@ repl_config() {
   esac
 }
 
+repl_languages() {
+  echo "repl: Supported languages"
+  for language in "${LANGUAGES[@]}"
+  do
+    echo "- $language"
+  done
+}
+
 repl_edit() {
   for lang in "${LANGUAGES[@]}"; do
     if [ "$EXT" = "$lang" ]; then
@@ -109,6 +117,9 @@ main() {
     ;;
   status)
     repl_status
+    ;;
+  languages)
+    repl_languages
     ;;
   config)
     if [ -n "$PARAM1" ] && [ -n "$PARAM2" ]; then
