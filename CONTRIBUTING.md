@@ -71,7 +71,7 @@ I can't possibly know how to use or set up every programming language in existen
 
 Adding support for a new language is easy! Currently, there are four steps for this:
 
-1. Create a module in [repl_modules](repl_modules)
+1. Create a module in [repl_modules](modules/repl_modules.sh)
 
    - This module should follow the naming conventions of the other modules (i.e. `repl_<file-extension>()`)
    - Boilerplate code (if any) should **only** print `Hello world!`
