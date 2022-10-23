@@ -42,7 +42,7 @@
 #   None
 #######################################
   repl_install_from_git() {
-    local repl_source="https://github.com/DamianRivas/REPL.git"
+    local repl_source="https://github.com/repl-cli/REPL.git"
 
     printf "Cloning REPL...\n"
     printf "=> Downloading REPL from git to '%s/'\n" "$INSTALL_DIR"
