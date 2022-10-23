@@ -50,7 +50,11 @@ repl_config() {
 }
 
 repl_languages() {
-  echo "repl: Currently supports - ${LANGUAGES[*]}"
+  echo "repl: Supported languages"
+  for language in "${LANGUAGES[@]}"
+  do
+    echo "- $language"
+  done
 }
 
 repl_edit() {

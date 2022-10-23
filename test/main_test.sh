@@ -42,7 +42,10 @@ test_languages() {
   local languages
   languages=$(./bin/repl languages)
 
-  assertEquals "repl: Currently supports - ${LANGUAGES[*]}" "$languages"
+  for language in "${LANGUAGES[@]}"
+  do
+    assertContains "$languages" "$language"
+  done
 }
 
 test_edit() {
