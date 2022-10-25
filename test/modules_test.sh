@@ -29,6 +29,7 @@ assert_repl_run() {
 test_c_module() {
   repl_command c
   assertContains "$(ls repl_tmp/)" "repl.c"
+  assertContains "$(cat repl_tmp/repl.c)" "Hello world!"
 
   assert_repl_run
 }
@@ -36,6 +37,7 @@ test_c_module() {
 test_cpp_module() {
   repl_command cpp
   assertContains "$(ls repl_tmp/)" "repl.cpp"
+  assertContains "$(cat repl_tmp/repl.cpp)" "Hello world!"
 
   assert_repl_run
 }
@@ -43,6 +45,7 @@ test_cpp_module() {
 test_java_module() {
   repl_command java
   assertContains "$(ls repl_tmp/)" "repl.java"
+  assertContains "$(cat repl_tmp/repl.java)" "Hello world!"
 
   assert_repl_run
 }
@@ -50,9 +53,7 @@ test_java_module() {
 test_js_module() {
   repl_command js
   assertContains "$(ls repl_tmp/)" "repl.js"
-
-  echo "console.log('Hello world!');" > repl_tmp/repl.js
-  assertContains "$(cat repl_tmp/repl.js)" "'Hello world!'"
+  assertContains "$(cat repl_tmp/repl.js)" "Hello world!"
 
   assert_repl_run
 }
@@ -60,8 +61,6 @@ test_js_module() {
 test_py_module() {
   repl_command py
   assertContains "$(ls repl_tmp/)" "repl.py"
-
-  echo "print(\"Hello world!\")" > repl_tmp/repl.py
   assertContains "$(cat repl_tmp/repl.py)" "Hello world!"
 
   assert_repl_run
@@ -70,8 +69,6 @@ test_py_module() {
 test_rb_module() {
   repl_command rb
   assertContains "$(ls repl_tmp/)" "repl.rb"
-
-  echo "puts 'Hello world!'" > repl_tmp/repl.rb
   assertContains "$(cat repl_tmp/repl.rb)" "Hello world!"
 
   assert_repl_run
@@ -80,6 +77,7 @@ test_rb_module() {
 test_rs_module() {
   repl_command rs
   assertContains "$(ls repl_tmp/)" "repl.rs"
+  assertContains "$(cat repl_tmp/repl.rs)" "Hello world!"
 
   assert_repl_run
 }
@@ -87,6 +85,7 @@ test_rs_module() {
 test_ts_module() {
   repl_command ts
   assertContains "$(ls repl_tmp/)" "repl.ts"
+  assertContains "$(cat repl_tmp/repl.ts)" "Hello world!"
 
   assert_repl_run
 }
@@ -94,6 +93,7 @@ test_ts_module() {
 test_go_module() {
   repl_command go
   assertContains "$(ls repl_tmp/)" "repl.go"
+  assertContains "$(cat repl_tmp/repl.go)" "Hello world!"
 
   assert_repl_run
 }
