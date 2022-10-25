@@ -19,7 +19,7 @@ shellcheck_pass() {
 shellcheck_module() {
   shellcheck test.sh || shellcheck_fail "test.sh"
   shellcheck -x bin/repl || shellcheck_fail "repl"
-  shellcheck repl_modules.sh || shellcheck_fail "repl_modules.sh"
+  shellcheck modules/repl_modules.sh || shellcheck_fail "repl_modules.sh"
   shellcheck language_support.sh || shellcheck_fail "language_support.sh"
   shellcheck -e SC2034,SC2148 config || shellcheck_fail "config"
   shellcheck -e SC2034,SC2148 config.default || shellcheck_fail "config.default"
@@ -29,7 +29,7 @@ shellcheck_module() {
 shellcheck_module_travis() {
   shellcheck test.sh
   shellcheck -x repl
-  shellcheck repl_modules.sh
+  shellcheck modules/repl_modules.sh
   shellcheck language_support.sh
   shellcheck -e SC2034,SC2148 config
   shellcheck -e SC2034,SC2148 config.default
