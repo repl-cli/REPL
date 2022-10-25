@@ -54,6 +54,31 @@ repl_cpp() {
   esac
 }
 
+repl_cs() {
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cd "${TMP}" && \
+        touch "repl.cs" && \
+        {
+          printf 'using System.IO;\n\n';
+          printf 'using System;\n\n';
+          printf 'class Program {\n';
+          printf '    static void Main() {\n';
+          printf '        Console.WriteLine("Hello, World!");\n';
+          printf '    }\n';
+          printf '}\n'
+        } >> "repl.cs"
+    fi
+    ;;
+  run)
+    cd "${TMP}" && \
+      $CS_COMPILER repl.cs && \
+      repl
+    ;;
+  esac
+}
+
 repl_java() {
   case $1 in
   edit)

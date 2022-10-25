@@ -40,6 +40,13 @@ test_cpp_module() {
   assert_repl_run
 }
 
+test_cs_module() {
+  repl_command cs
+  assertContains "$(ls repl_tmp/)" "repl.cs"
+
+  assert_repl_run
+}
+
 test_java_module() {
   repl_command java
   assertContains "$(ls repl_tmp/)" "repl.java"
