@@ -10,8 +10,8 @@ SCRIPTPATH="$( cd "$(dirname "$0")" || exit ; pwd -P )"
 . "${SCRIPTPATH}/../config"
 # shellcheck source=./language_support.sh
 . "${SCRIPTPATH}/../language_support.sh"
-# shellcheck source=./repl_modules.sh
-. "${SCRIPTPATH}/../repl_modules.sh"
+# shellcheck source=./modules/repl_modules.sh
+. "${SCRIPTPATH}/../modules/repl_modules.sh"
 
 
 #######################################

@@ -22,7 +22,7 @@ before_script:
 script:
   - shellcheck test.sh
   - shellcheck -x bin/repl
-  - shellcheck repl_modules.sh
+  - shellcheck modules/repl_modules.sh
   - shellcheck language_support.sh
   - shellcheck -e SC2034,SC2148 config
   - shellcheck -e SC2034,SC2148 config.default
