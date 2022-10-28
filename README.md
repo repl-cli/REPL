@@ -114,6 +114,7 @@ If you break the config file and you're not sure how to fix it, you can copy the
 
 - C (`c`)
 - C++ (`cpp`)
+- C# (`cs`)
 - Go (`go`)
 - Java (`java`)
 - JavaScript (`js`)

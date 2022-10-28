@@ -37,6 +37,21 @@ repl_cpp() {
   esac
 }
 
+repl_cs() {
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cp "$SCRIPTPATH/../modules/boilerplates/repl.cs" "${TMP}/"
+    fi
+    ;;
+  run)
+    cd "${TMP}" && \
+      $CS_COMPILER repl.cs && \
+      ./repl
+    ;;
+  esac
+}
+
 repl_java() {
   case $1 in
   edit)
