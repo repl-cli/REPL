@@ -153,7 +153,7 @@ Below are some ideas for the project. If you'd like to start a conversation rega
 
 ## Copyright
 
-© 2022 Damian Rivas
+© 2022 Damian Rivas and `repl` contributors
 
 REPL is released under an MIT license; see [`LICENSE`](LICENSE) for details.
 
