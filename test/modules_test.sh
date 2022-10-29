@@ -89,6 +89,14 @@ test_rs_module() {
   assert_repl_run
 }
 
+test_swift_module() {
+  repl_command swift
+  assertContains "$(ls repl_tmp/)" "repl.swift"
+  assertContains "$(cat repl_tmp/repl.swift)" "Hello world!"
+
+  assert_repl_run
+}
+
 test_ts_module() {
   repl_command ts
   assertContains "$(ls repl_tmp/)" "repl.ts"

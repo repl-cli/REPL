@@ -148,3 +148,18 @@ repl_go() {
     ;;
   esac
 }
+
+repl_swift() {
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cp "$SCRIPTPATH/../modules/boilerplates/repl.swift" "${TMP}/"
+    fi
+    ;;
+  run)
+    cd "${TMP}" && \
+      "$SWIFT_COMPILER" -o "repl" "repl.swift" && \
+      ./repl
+    ;;
+  esac
+}

@@ -20,6 +20,7 @@ GO_COMPILER="go"
 RUST_COMPILER="rustc"
 JAVA_COMPILER="javac"
 TYPESCRIPT_COMPILER="tsc"
+SWIFT_COMPILER="swiftc"
 
 ### WARNING: Data below this line is for REPL use only.
 ### Edit only if you know what you're doing.
