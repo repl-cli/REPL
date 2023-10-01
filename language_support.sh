@@ -10,6 +10,7 @@ declare -a LANGUAGES=(
   "java"
   "js"
   "py"
+  "nim"
   "rb"
   "rs"
   "swift"
