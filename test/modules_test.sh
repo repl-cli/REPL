@@ -65,6 +65,14 @@ test_js_module() {
   assert_repl_run
 }
 
+test_nim_module() {
+  repl_command nim
+  assertContains "$(ls repl_tmp/)" "repl.nim"
+  assertContains "$(cat repl_tmp/repl.nim)" "Hello world!"
+
+  assert_repl_run
+}
+
 test_py_module() {
   repl_command py
   assertContains "$(ls repl_tmp/)" "repl.py"

@@ -118,6 +118,7 @@ If you break the config file and you're not sure how to fix it, you can copy the
 - Go (`go`)
 - Java (`java`)
 - JavaScript (`js`)
+- Nim(`nim`)
 - Python (`py`)
 - Ruby (`rb`)
 - Rust (`rs`)

@@ -80,6 +80,19 @@ repl_js() {
   esac
 }
 
+repl_nim() {
+  case $1 in
+  edit)
+    if [ ! -e "$2" ]; then
+      cp "$SCRIPTPATH/../modules/boilerplates/repl.nim" "${TMP}/"
+    fi
+    ;;
+  run)
+    $NIM_COMPILER r "${TMP}/repl.nim"
+    ;;
+  esac
+}
+
 repl_py() {
   case $1 in
   edit)
